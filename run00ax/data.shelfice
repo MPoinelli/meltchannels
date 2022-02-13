@@ -1,0 +1,13 @@
+# ===================================
+# | Parameters for SHELFICE package |
+# ===================================
+ &SHELFICE_PARM01
+ SHELFICEboundaryLayer = .TRUE.,
+ SHELFICEtopoFile='../matlab/draft.bin',
+# SHELFICEloadAnomalyFile = 'phi0surf.data',
+# useISOMIPTD = .TRUE.,
+ SHELFICEuseGammaFrict = .TRUE.,
+ no_slip_shelfice = .false.,
+ SHELFICEwriteState = .TRUE.,
+ SHELFICEconserve=.TRUE.,
+&

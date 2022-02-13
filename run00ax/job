@@ -1,0 +1,17 @@
+#!/bin/bash
+#PBS -N thesisS.a01
+#PBS -q devel
+#PBS -W group_list=g26209
+#PBS -l select=2:ncpus=20:model=ivy
+#PBS -l walltime=01:00:00
+#PBS -j oe
+#PBS -m abe
+
+module load comp-intel/2020.4.304
+module load mpi-hpe/mpt.2.25
+module load hdf4/4.2.12 hdf5/1.8.18_mpt netcdf/4.4.1.1_mpt
+
+export RUN_DIR=/nobackupp11/mpoinell/meltchannels/run00a
+
+cd $RUN_DIR
+mpiexec -np 40 ./mitgcmuv_meltchannels

@@ -1,0 +1,14 @@
+# Packages
+ &PACKAGES
+ useShelfIce=.TRUE.,
+ useIcefront=.FALSE.,
+ useDiagnostics=.FALSE.,
+ useOBCS=.FALSE.,
+ useCal=.FALSE.,
+ usePTRACERS=.FALSE.,
+ useEXF=.FALSE., 
+ useSEAICE=.FALSE.,
+ useFRAZIL=.FALSE.,
+ useKPP=.TRUE.,
+ useSALT_PLUME=.TRUE.,
+&

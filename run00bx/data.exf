@@ -1,0 +1,109 @@
+#
+# *********************
+# External Forcing Data
+# *********************
+ &EXF_NML_01
+#
+ exf_albedo        = 0.1,
+ ocean_emissivity  = 0.97,
+ ice_emissivity    = 0.95,
+ snow_emissivity   = 0.95,
+ exf_iprec         = 32,
+ exf_yftype        = 'RL',
+ useExfYearlyFields= .FALSE.,
+ useExfCheckRange  = .FALSE.,
+ useRelativeWind   = .FALSE.,
+#
+ &
+
+# *********************
+ &EXF_NML_02
+#
+ atempstartdate1   = 20161215,
+ atempstartdate2   = 180000,
+ atempperiod       = 2592000.0,
+#
+ aqhstartdate1     = 20161215,
+ aqhstartdate2     = 180000,
+ aqhperiod         = 2592000.0,
+#
+ precipstartdate1  = 20161215,
+ precipstartdate2  = 180000,
+ precipperiod      = 2592000.0,
+#
+ uwindstartdate1   = 20161215,
+ uwindstartdate2   = 180000,
+ uwindperiod       = 2592000.0,
+#
+ vwindstartdate1   = 20161215,
+ vwindstartdate2   = 180000,
+ vwindperiod       = 2592000.0,
+#
+ swdownstartdate1  = 20161215,
+ swdownstartdate2  = 180000,
+ swdownperiod      = 2592000.0,
+#
+ lwdownstartdate1  = 20161215,
+ lwdownstartdate2  = 180000,
+ lwdownperiod      = 2592000.0,
+#
+ atempfile         = '../repository_bin_files/EXF_tair.testCaseRift',
+ aqhfile           = '../repository_bin_files/EXF_qa.testCaseRift',
+ uwindfile         = '../repository_bin_files/EXF_u10m.testCaseRift',
+ vwindfile         = '../repository_bin_files/EXF_v10m.testCaseRift',
+ precipfile        = '../repository_bin_files/EXF_prate.testCaseRift',
+ lwdownfile        = '../repository_bin_files/EXF_lwd.testCaseRift',
+ swdownfile        = '../repository_bin_files/EXF_swd.testCaseRift',
+#
+# atempfile         = ' ',
+# aqhfile           = ' ',
+# uwindfile         = ' ',
+# vwindfile         = ' ',
+# precipfile        = ' ',
+# lwdownfile        = ' ',
+# swdownfile        = ' ', 
+&
+
+# *********************
+ &EXF_NML_03
+ &
+
+# *********************
+ &EXF_NML_04
+ &
+
+# *********************
+ &EXF_NML_OBCS
+ obcsSstartdate1   = 20161215,
+ obcsSstartdate2   = 120000,
+ obcsSperiod       = 2592000.0,
+#
+ obcsNstartdate1   = 20161215,
+ obcsNstartdate2   = 120000,
+ obcsNperiod       = 2592000.0,
+#
+# obcsWstartdate1   = 20161215,
+# obcsWstartdate2   = 120000,
+# obcsWperiod       = 259200.0,
+#
+ obcsEstartdate1   = 20161215,
+ obcsEstartdate2   = 120000,
+ obcsEperiod       = 2592000.0,
+#
+# siobSstartdate1   = 20031231,
+# siobSstartdate2   = 120000,
+# siobSperiod       = 86400.0,
+#
+# siobNstartdate1   = 20031231,
+# siobNstartdate2   = 120000,
+# siobNperiod       = 86400.0,
+#
+# siobWstartdate1   = 20031231,
+# siobWstartdate2   = 120000,
+# siobWperiod       = 86400.0,
+#
+# siobEstartdate1   = 20031231,
+# siobEstartdate2   = 120000,
+# siobEperiod       = 86400.0,
+#
+ &

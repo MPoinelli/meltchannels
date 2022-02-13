@@ -1,0 +1,352 @@
+# Diagnostic Package Choices
+#--------------------
+#  dumpAtLast (logical): always write output at the end of simulation (default=F)
+#  diag_mnc   (logical): write to NetCDF files (default=useMNC)
+#--for each output-stream:
+#  fileName(n) : prefix of the output file name (max 80c long) for outp.stream n
+#  frequency(n):< 0 : write snap-shot output every |frequency| seconds
+#               > 0 : write time-average output every frequency seconds
+#  timePhase(n)     : write at time = timePhase + multiple of |frequency|
+#    averagingFreq  : frequency (in s) for periodic averaging interval
+#    averagingPhase : phase     (in s) for periodic averaging interval
+#    repeatCycle    : number of averaging intervals in 1 cycle
+#  levels(:,n) : list of levels to write to file (Notes: declared as REAL)
+#                when this entry is missing, select all common levels of this list
+#  fields(:,n) : list of selected diagnostics fields (8.c) in outp.stream n
+#                (see "available_diagnostics.log" file for the full list of diags)
+#  missing_value(n) : missing value for real-type fields in output file "n"
+#  fileFlags(n)     : specific code (8c string) for output file "n"
+#--------------------
+ &DIAGNOSTICS_LIST
+#--------------------
+#
+# Daily diagnostics
+#
+#--------------------
+# fields(1,1) = 'PsiVEL  ',
+#  fileName(1) = 'output_day/PsiVEL',
+#  frequency(1) = 86400.,
+# fields(1,2) = 'momKE   ',
+#  fileName(2) = 'output_day/momKE',
+#  frequency(2) = 86400.,
+# fields(1,3) = 'momVort3',
+#  fileName(3) = 'output_day/momVort3',
+#  frequency(3) = 86400.,
+# fields(1,4) = 'THETA   ',
+#  fileName(4) = 'output_day/THETA',
+#  frequency(4) = 86400.,
+#  timePhase(4) = 110332800.,
+# fields(1,5) = 'SALTanom',
+#  fileName(5) = 'output_day/SALTanom',
+#  frequency(5) = 86400.,
+#  timePhase(5) = 110332800.,
+# fields(1,6) = 'UVELMASS',
+#  fileName(6) = 'output_day/UVELMASS',
+#  frequency(6) = 86400.,
+# fields(1,7) = 'VVELMASS',
+#  fileName(7) = 'output_day/VVELMASS',
+#  frequency(7) = 86400.,
+# fields(1,8) = 'WVELMASS',
+#  fileName(8) = 'output_day/WVELMASS',
+#  frequency(8) = 86400.,
+# fields(1,9) = 'SIarea  ',
+#  fileName(9) = 'output_day/SIarea',
+#  frequency(9) = 86400.,
+# fields(1,10) = 'SIheff  ',
+#  fileName(10) = 'output_day/SIeff  ',
+#  frequency(10) = 86400.,
+# fields(1,11) = 'SIhsnow ',
+#  fileName(11) = 'output_day/SIhsnow',
+#  frequency(11) = 86400.,
+# fields(1,12) = 'UTHMASS ',
+#  fileName(12) = 'output_day/UTHMASS',
+#  frequency(12) = 86400.,
+# fields(1,13) = 'VTHMASS ',
+#  fileName(13) = 'output_day/VTHMASS',
+#  frequency(13) = 86400.,
+# fields(1,14) = 'WTHMASS ',
+#  fileName(14) = 'output_day/WTHMASS',
+#  frequency(14) = 86400.,
+# fields(1,15) = 'USLTMASS',
+#  fileName(15) = 'output_day/USLTMASS',
+#  frequency(15) = 86400.,
+# fields(1,16) = 'VSLTMASS',
+#  fileName(16) = 'output_day/VSLTMASS',
+#  frequency(16) = 86400.,
+# fields(1,17) = 'WSLTMASS',
+#  fileName(17) = 'output_day/WSLTMASS',
+#  frequency(17) = 86400.,
+#---
+ fields(1,21) = 'TRAC01  ',
+  frequency(21) = 86400.,
+  filename(21) = 'output_day/CAV_tr01',
+  timePhase(21) = 110332800.,
+# fields(1,22) = 'TRAC02  ',          
+#  frequency(22) = 86400.,
+#  filename(22) = 'output_day/CAV_tr02',
+# fields(1,23) = 'TRAC03  ',          
+#  frequency(23) = 86400.,
+#  filename(23) = 'output_day/CAV_tr03',
+# fields(1,24) = 'TRAC04  ',
+#  frequency(24) = 86400.,
+#  filename(24) = 'output_day/CAV_tr04',
+#---  
+# fields(1:6,36) = 'SHIfwFlx','SHIhtFlx',
+#  'SHIgammT','SHIgammS','SHIForcT', 'SHIForcS',
+#  filename(36) = 'output_day/state_2d_shi', 
+#  frequency(36) = 86400.0,
+# fields(1,37) = 'ICFfwFlx',
+#  filename(37) = 'output_day/state_3d_icf',
+#  frequency(37) = 86400.0,
+#
+#--------------------
+#
+# Monthly diagnostics
+#
+#--------------------
+ fields(1,51) = 'SALTanom',
+  fileName(51) = 'output_month/SALTanom',
+  frequency(51) = 2592000.,
+  timePhase(51) = 110332800., 
+fields(1,52) = 'THETA   ',
+  fileName(52) = 'output_month/THETA',
+  frequency(52) = 2592000.,
+  timePhase(52) = 110332800.,
+ fields(1,53) = 'PsiVEL  ',
+  fileName(53) = 'output_month/PsiVEL',
+  frequency(53) = 2592000.,
+  timePhase(53) = 110332800.,
+ fields(1,54) = 'momKE   ',
+  fileName(54) = 'output_month/momKE',
+  frequency(54) = 2592000.,
+  timePhase(54) = 110332800.,
+ fields(1,55) = 'momVort3',
+  fileName(55) = 'output_month/momVort3',
+  frequency(55) = 2592000.,
+  timePhase(55) = 110332800.,
+# fields(1,56) = 'UVELMASS',
+#  fileName(56) = 'output_month/UVELMASS',
+#  frequency(56) = 2592000.,
+# fields(1,57) = 'VVELMASS',
+#  fileName(57) = 'output_month/VVELMASS',
+#  frequency(57) = 2592000.,
+# fields(1,58) = 'WVELMASS',
+#  fileName(58) = 'output_month/WVELMASS',
+#  frequency(58) = 2592000.,
+# fields(1,59) = 'UTHMASS ',
+#  fileName(59) = 'output_month/UTHMASS',
+#  frequency(59) = 2592000.,
+# fields(1,60) = 'VTHMASS ',
+#  fileName(60) = 'output_month/VTHMASS',
+#  frequency(60) = 2592000.,
+ fields(1,61) = 'WTHMASS ',
+  fileName(61) = 'output_month/WTHMASS',
+  frequency(61) = 2592000.,
+# fields(1,62) = 'USLTMASS',
+#  fileName(62) = 'output_month/USLTMASS',
+#  frequency(62) = 2592000.,
+# fields(1,63) = 'VSLTMASS',
+#  fileName(63) = 'output_month/VSLTMASS',
+#  frequency(63) = 2592000.,
+ fields(1,64) = 'WSLTMASS',
+  fileName(64) = 'output_month/WSLTMASS',
+  frequency(64) = 2592000.,
+#---
+ fields(1:6,65) = 'SHIfwFlx','SHIhtFlx',
+  'SHIgammT','SHIgammS','SHIForcT', 'SHIForcS',
+  fileName(65) = 'output_month/state_2d_shi', 
+  frequency(65) = 2592000.0,
+  timePhase(65) = 110332800.,
+ fields(1,66) = 'ICFfwFlx',
+  filename(66) = 'output_month/state_3d_icf',
+  frequency(66) = 2592000.0,
+  timePhase(66) = 110332800.,
+
+#
+#--- heat budget
+#
+ fields(1,200) = 'TOTTTEND',
+  fileName(200) = 'output_month/TOTTTEND',
+  frequency(200) = 2592000.,
+ fields(1,201) = 'TFLUX   ',
+  fileName(201) = 'output_month/TFLUX',
+  frequency(201) = 2592000.,
+ fields(1,202) = 'ADVr_TH ',
+  fileName(202) = 'output_month/ADVr_TH',
+  frequency(202) = 2592000.,
+ fields(1,203) = 'ADVx_TH ',
+  fileName(203) = 'output_month/ADVx_TH',
+  frequency(203) = 2592000.,
+ fields(1,204) = 'ADVy_TH ',
+  fileName(204) = 'output_month/ADVy_TH',
+  frequency(204) = 2592000.,
+# fields(1,205) = 'DFrE_TH ',
+#  fileName(205) = 'output_month/DFrE_TH',
+#  frequency(205) = 2592000.,
+# fields(1,206) = 'DFxE_TH ',
+#  fileName(206) = 'output_month/DFxE_TH',
+#  frequency(206) = 2592000.,
+# fields(1,207) = 'DFyE_TH ',
+#  fileName(207) = 'output_month/DFyE_TH',
+#  frequency(207) = 2592000.,
+ fields(1,208) = 'DFrI_TH ',
+  fileName(208) = 'output_month/DFrI_TH',
+  frequency(208) = 2592000.,
+ fields(1,209) = 'KPPg_TH ',
+  fileName(209) = 'output_month/KPPg_TH',
+  frequency(209) = 2592000.,
+ fields(1,210) = 'oceQsw  ',
+  fileName(210) = 'output_month/oceQsw',
+  frequency(210) = 2592000.,
+#
+#--- salt budget
+#
+ fields(1,211) = 'TOTSTEND',
+  fileName(211) = 'output_month/TOTSTEND',
+  frequency(211) = 2592000.,
+ fields(1,212) = 'SFLUX   ',
+  fileName(212) = 'output_month/SFLUX',
+  frequency(212) = 2592000.,
+ fields(1,213) = 'ADVr_SLT',
+  fileName(213) = 'output_month/ADVr_SLT',
+  frequency(213) = 2592000.,
+ fields(1,214) = 'ADVx_SLT',
+  fileName(214) = 'output_month/ADVx_SLT',
+  frequency(214) = 2592000.,
+ fields(1,215) = 'ADVy_SLT',
+  fileName(215) = 'output_month/ADVy_SLT',
+  frequency(215) = 2592000.,
+# fields(1,216) = 'DFrE_SLT',
+#  fileName(216) = 'output_month/DFrE_SLT',
+#  frequency(216) = 2592000.,
+# fields(1,217) = 'DFxE_SLT',
+#  fileName(217) = 'output_month/DFxE_SLT',
+#  frequency(217) = 2592000.,
+# fields(1,218) = 'DFyE_SLT',
+#  fileName(218) = 'output_month/DFyE_SLT',
+#  frequency(218) = 2592000.,
+ fields(1,219) = 'DFrI_SLT',
+  fileName(219) = 'output_month/DFrI_SLT',
+  frequency(219) = 2592000.,
+ fields(1,220) = 'KPPg_SLT',
+  fileName(220) = 'output_month/KPPg_SLT',
+  frequency(220) = 2592000.,
+ fields(1,221) = 'oceFWflx',
+  fileName(221) = 'output_month/oceFWflx',
+  frequency(221) = 2592000.,
+#
+#--- ptracers
+#
+ fields(1,222) = 'TRAC01  ',
+  fileName(222) = 'output_month/CAV_tr01',
+  frequency(222) = 2592000.,
+  timePhase(222) = 47174400.,
+ fields(1,223) = 'TRAC02  ',
+  fileName(223) = 'output_month/CAV_tr02',
+  frequency(223) = 2592000.,
+  timePhase(223) = 47174400.,
+ fields(1,224) = 'TRAC03  ',
+  fileName(224) = 'output_month/CAV_tr03',
+  frequency(224) = 2592000.,
+  timePhase(224) = 47174400.,
+ fields(1,225) = 'TRAC04  ',
+  fileName(225) = 'output_month/CAV_tr04',
+  frequency(225) = 2592000.,
+  timePhase(225) = 47174400.,
+#
+#--------------------
+#
+# Yearly diagnostics
+#
+#--------------------
+ fields(1,378) = 'SALTanom',
+ fileName(378) = 'output_year/SALTanom',
+  frequency(378) = 31536000.,
+  timePhase(378) = 110332800.,
+ fields(1,379) = 'THETA   ',
+  fileName(379) = 'output_year/THETA',
+  frequency(379) = 31536000.,
+  timePhase(379) = 110332800.,
+ fields(1,380) = 'PsiVEL  ',
+  fileName(380) = 'output_year/PsiVEL',
+  frequency(380) = 31536000.,
+  timePhase(380) = 110332800.,
+ fields(1,381) = 'momKE   ',
+  fileName(381) = 'output_year/momKE',
+  frequency(381) = 31536000.,
+  timePhase(381) = 110332800.,
+ fields(1,382) = 'momVort3',
+  fileName(382) = 'output_year/momVort3',
+  frequency(382) = 31536000.,
+  timePhase(382) = 110332800.,
+ fields(1,383) = 'UVELMASS',
+  fileName(383) = 'output_year/UVELMASS',
+  frequency(383) = 31536000.,
+  timePhase(383) = 110332800.,
+ fields(1,384) = 'VVELMASS',
+  fileName(384) = 'output_year/VVELMASS',
+  frequency(384) = 31536000.,
+  timePhase(384) = 110332800.,
+ fields(1,385) = 'WVELMASS',
+  fileName(385) = 'output_year/WVELMASS',
+  frequency(385) = 31536000.,
+  timePhase(385) = 110332800.,
+ fields(1,386) = 'UTHMASS ',
+  fileName(386) = 'output_year/UTHMASS',
+  frequency(386) = 31536000.,
+  timePhase(386) = 110332800.,
+ fields(1,387) = 'VTHMASS ',
+  fileName(387) = 'output_year/VTHMASS',
+  frequency(387) = 31536000.,
+  timePhase(387) = 110332800., 
+ fields(1,388) = 'WTHMASS ',
+  fileName(388) = 'output_year/WTHMASS',
+  frequency(388) = 31536000.,
+  timePhase(388) = 110332800.,
+ fields(1,389) = 'USLTMASS',
+  fileName(389) = 'output_year/USLTMASS',
+  frequency(389) = 31536000.,
+  timePhase(389) = 110332800., 
+ fields(1,390) = 'VSLTMASS',
+  fileName(390) = 'output_year/VSLTMASS',
+  frequency(390) = 31536000.,
+  timePhase(390) = 110332800., 
+ fields(1,391) = 'WSLTMASS',
+  fileName(391) = 'output_year/WSLTMASS',
+  frequency(391) = 31536000.,
+  timePhase(391) = 110332800.,
+#---
+ fields(1:6,392) = 'SHIfwFlx','SHIhtFlx',
+  'SHIgammT','SHIgammS','SHIForcT', 'SHIForcS',
+  fileName(392) = 'output_year/state_2d_shi', 
+  frequency(392) = 31536000.0,
+  timePhase(392) = 110332800.,
+ fields(1,393) = 'ICFfwFlx',
+  filename(393) = 'output_year/state_3d_icf',
+  frequency(393) = 31536000.0, 
+  timePhase(393) = 110332800., 
+#
+&
+#--------------------
+# Parameter for Diagnostics of per level statistics:
+#--------------------
+#  diagSt_mnc (logical): write stat-diags to NetCDF files (default=diag_mnc)
+#  diagSt_regMaskFile : file containing the region-mask to read-in
+#  nSetRegMskFile   : number of region-mask sets within the region-mask file
+#  set_regMask(i)   : region-mask set-index that identifies the region "i"
+#  val_regMask(i)   : region "i" identifier value in the region mask
+#--for each output-stream:
+#  stat_fName(n) : prefix of the output file name (max 80c long) for outp.stream n
+#  stat_freq(n):< 0 : write snap-shot output every |stat_freq| seconds
+#               > 0 : write time-average output every stat_freq seconds
+#  stat_phase(n)    : write at time = stat_phase + multiple of |stat_freq|
+#  stat_region(:,n) : list of "regions" (default: 1 region only=global)
+#  stat_fields(:,n) : list of selected diagnostics fields (8.c) in outp.stream n
+#                (see "available_diagnostics.log" file for the full list of diags)
+#--------------------
+ &DIAG_STATIS_PARMS
+#stat_fields(1:5,1)  = 'ETAN    ','UVEL    ','VVEL    ','WVEL    ', 'THETA   ',
+# stat_fName(1) = 'dynStDiag',
+#  stat_freq(1) = -10.,
+# stat_phase(1) = 0.,
+ &
